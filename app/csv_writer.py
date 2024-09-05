@@ -1,7 +1,7 @@
 import csv
 
 class CSVWriter():
-    def write(filepath: str, data: list[dict[str, str]], headers: list[str]) -> bytes | None:
+    def write(filepath: str, data: list[dict[str, str]], headers: list[str]) -> None:
         with open(filepath, 'w', newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=headers, delimiter=',')
             writer.writeheader()

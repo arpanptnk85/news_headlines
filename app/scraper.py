@@ -2,6 +2,7 @@ import re
 import requests
 from typing import Any, List
 from bs4 import BeautifulSoup
+from csv_writer import CSVWriter
 from collections import namedtuple
 from abc import ABC, abstractmethod
 
@@ -99,6 +100,6 @@ if __name__ == '__main__':
             headlines = None
 
         if headlines:
-            print(*headlines[:5], sep='\n')
-            print('-' * 20, '\n')
+            fields = headlines[0].keys()
+            CSVWriter.write(filepath=f'./{provider}_news.csv', data=headlines, headers=fields)
         

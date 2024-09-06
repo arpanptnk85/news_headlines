@@ -5,4 +5,4 @@
 <h3>Features</h3>
 
 <li>Extracts headlines using BeautifulSoup.</li>
-<li>Saves the extracted headlines in a CSV file.</li>
+<li>Saves the extracted headlines in a CSV file using csv.</li>

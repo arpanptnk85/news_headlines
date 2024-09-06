@@ -2,7 +2,7 @@ import re
 import requests
 from typing import Any, List
 from bs4 import BeautifulSoup
-from csv_writer import CSVWriter
+from csv_writer import DictCSVWriter
 from collections import namedtuple
 from abc import ABC, abstractmethod
 
@@ -85,6 +85,7 @@ if __name__ == '__main__':
     domain_extractor = DefaultDomainExtractor()
     web_scraper = RequestsWebScrapper()
     headline_extractor = BS4HeadlineExtractor()
+    dc_writer = DictCSVWriter()
 
     for news in news_websites:
 
@@ -102,5 +103,5 @@ if __name__ == '__main__':
 
         if headlines:
             fields = headlines[0].keys()
-            CSVWriter.write(filepath=f'./{provider}_news.csv', data=headlines, headers=fields)
+            dc_writer.write(filepath=f'./{provider}_news.csv', data=headlines, headers=fields)
         

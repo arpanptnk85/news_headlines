@@ -22,7 +22,7 @@ class DomainExtractor(ABC):
         pass
 
 class DefaultDomainExtractor(DomainExtractor):
-    def get_domain(self, address: str) -> str:
+    def get_domain(self, address: str) -> str | None:
         if not address:
             return address
         match = re.search(self.domain_ptn, address)
@@ -30,6 +30,7 @@ class DefaultDomainExtractor(DomainExtractor):
             subdomain = match.group(1)
             name = subdomain.split('.')[1]
             return name
+        return None
         
 class WebScraper(ABC):
     encoding = 'ISO-8859-1'
@@ -55,7 +56,7 @@ class HeadlineExtractor(ABC):
 
 class BS4HeadlineExtractor(HeadlineExtractor):
     def get_headlines(self, domain: str, provider: str, html_content: Any, headline_tag: str) -> List[str] | None:
-        headlines = [] # To store the headline links, title, link
+        headlines = [] # To store the headline provider, title, link
         if html_content is None:
             return None
         soup = BeautifulSoup(html_content, 'html.parser')

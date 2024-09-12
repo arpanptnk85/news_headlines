@@ -7,8 +7,7 @@
 <li>Extracts headlines using BeautifulSoup.</li>
 <li>Saves the extracted headlines in a CSV file using csv.</li>
 
-Future Improvements
+<h3>Future Improvements</h3>
 
-	•	Add functionality to scrape multiple news websites.
-	•	Filter headlines based on specific categories (e.g., technology, sports, politics).
-	•	Implement a scheduler to automatically scrape headlines at regular intervals.
+<li>Filter headlines based on specific categories (e.g., technology, sports, politics).</li>
+<li>Implement a scheduler to automatically scrape headlines at regular intervals.</li>
